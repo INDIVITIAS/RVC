@@ -2,7 +2,7 @@
 
 set -e
 
-echo "🔧 Установка зависимостей..."
+echo "🔧 Установка зависимностей..."
 sudo apt update && sudo apt install -y git python3 python3-venv ffmpeg
 
 echo "📦 Клонирование RVC..."
