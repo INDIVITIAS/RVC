@@ -17,6 +17,11 @@ if [ ! -d "venv" ]; then
 
     echo "📥 Установка Python-зависимостей..."
     pip install --upgrade pip
+
+    # Установка совместимых версий omegaconf, hydra-core и fairseq
+    pip install omegaconf==2.0.5 hydra-core==1.0.7 fairseq==0.12.2
+
+    # Установка зависимостей из requirements.txt
     pip install -r requirements.txt
 
     echo "⚙️ Установка PyTorch для CPU..."
