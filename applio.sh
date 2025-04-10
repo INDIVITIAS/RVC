@@ -53,7 +53,7 @@ fi
 
 # Запуск инференса
 echo "🚀 Запуск инференса..."
-python infer_cli.py \
+python rvc/infer/infer.py \
   --input_path inputs/1.wav \
   --output_path results/output.wav \
   --model_path weights/VARGANOV/VARGANOV.pth \
