@@ -7,9 +7,9 @@ if [ ! -d "venv" ]; then
     echo "🔧 Установка зависимостей..."
     sudo apt update && sudo apt install -y git python3 python3-venv ffmpeg
 
-    echo "📦 Клонирование RVC..."
-    git clone https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI.git
-    cd Retrieval-based-Voice-Conversion-WebUI
+    echo "📦 Клонирование Applio..."
+    git clone https://github.com/IAHispano/Applio.git
+    cd Applio
 
     echo "🐍 Настройка виртуального окружения..."
     python3 -m venv venv
@@ -18,15 +18,12 @@ if [ ! -d "venv" ]; then
     echo "📥 Установка Python-зависимостей..."
     pip install --upgrade pip
 
-    # Установка совместимых версий omegaconf, hydra-core и fairseq
-    pip install omegaconf==2.0.5 hydra-core==1.0.7 fairseq==0.12.2
-
     # Установка зависимостей из requirements.txt
     pip install -r requirements.txt
 
     echo "⚙️ Установка PyTorch для CPU..."
     pip uninstall torch torchaudio -y
-    pip install torch==2.0.1+cpu torchaudio==2.0.2+cpu -f https://download.pytorch.org/whl/torch_stable.html
+    pip install torch==2.3.1 torchaudio==2.3.1 -f https://download.pytorch.org/whl/torch_stable.html
 else
     echo "💾 Все зависимости уже установлены. Пропускаем установку."
 fi
@@ -42,7 +39,7 @@ echo " - Индекс: weights/VARGANOV/VARGANOV.index"
 echo " - Аудио:  inputs/1.wav"
 echo ""
 
-# Проверим, что файлы существуют
+# Проверка наличия файлов
 if [ ! -f weights/VARGANOV/VARGANOV.pth ] || [ ! -f weights/VARGANOV/VARGANOV.index ] || [ ! -f inputs/1.wav ]; then
     echo "❗ Один или несколько файлов отсутствуют!"
     echo "Пожалуйста, положите файлы в нужные папки."
